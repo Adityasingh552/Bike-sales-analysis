@@ -22,7 +22,7 @@ owner = st.selectbox("Owner Type", ['First', 'Second', 'Third'])
 if st.button("Predict Price"):
     try:
         # Ensure all inputs are converted correctly
-        input_features = np.array([[year, kms, power, mileage, age, brand, owner]])
+        input_features = np.array([[year, kms, power, mileage, age, brand_encoded, owner_encoded]])
         price = model.predict(input_features)[0]
         st.success(f"Estimated Price: ₹{round(price)}")
     except Exception as e:
