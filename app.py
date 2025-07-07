@@ -20,7 +20,10 @@ owner = st.selectbox("Owner Type", ['First', 'Second', 'Third'])
 
 # Predict
 if st.button("Predict Price"):
-    # You must create the exact input feature structure expected by your model
-    input_features = np.array([[year, kms, power, mileage, age]])  # Add encoded features
-    price = model.predict(input_features)[0]
-    st.success(f"Estimated Price: ₹{round(price)}")
+    try:
+        # Ensure all inputs are converted correctly
+        input_features = np.array([[year, kms, power, mileage, age, brand_encoded, owner_encoded]])
+        price = model.predict(input_features)[0]
+        st.success(f"Estimated Price: ₹{round(price)}")
+    except Exception as e:
+        st.error(f"Prediction failed: {e}")
