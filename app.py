@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load model
-model = pickle.load(open('bike_price_model.pkl', 'rb'))
+model = pickle.load(open('best_bike_price_model.pkl', 'rb'))
 
 st.title("Bike Price Predictor")
 
